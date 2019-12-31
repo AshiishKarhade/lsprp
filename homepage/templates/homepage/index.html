@@ -1,0 +1,526 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        {% load static %}
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="{% static  'img/apple-icon.png'%}">
+  <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    letsPrep
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="{% static 'css/owl.carousel.min.css'%} " rel="stylesheet" />
+  <link href="{% static 'css/owl.theme.default.min.css'%}" rel="stylesheet" />
+
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <!-- <link href="./assets/demo/demo.css" rel="stylesheet" /> -->
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.js" integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI=" crossorigin="anonymous"></script>
+
+  </script>
+ 
+  <script src="{% static 'js/core/jquery.min.js'%} " type="text/javascript"></script>
+  <script src="{% static 'js/core/popper.min.js'%} " type="text/javascript"></script>
+  <script src="{% static 'js/core/bootstrap-material-design.min.js'%}" type="text/javascript"></script>
+  <script src="{% static 'js/plugins/moment.min.js'%} "></script>
+  <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+  <script src="{% static 'js/plugins/bootstrap-datetimepicker.js' %}" type="text/javascript"></script>
+   
+ 
+   <!-- Google Maps Plugin    -->
+  
+  <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
+   <!-- Slider  -->
+  <script src="{% static 'js/material-kit.js' %} " type="text/javascript"></script>
+  
+    <style>
+      * {box-sizing: border-box}
+      body {font-family: Verdana, sans-serif; margin:0}
+      .mySlides {display: none}
+      img {vertical-align: middle;}
+      
+      /* Slideshow container */
+      .slideshow-container {
+        max-width: 100%;
+        position: relative;
+       
+      }
+      
+      /* Next & previous buttons */
+      .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 1s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+      }
+      
+      /* Position the "next button" to the right */
+      .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
+      
+      /* On hover, add a black background color with a little bit see-through */
+      .prev:hover, .next:hover {
+        background-color: rgba(0,0,0,0.8);
+      }
+      
+      /* Caption text */
+      .text {
+        color: #f2f2f2;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+      }
+      
+      /* Number text (1/3 etc) */
+      .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+      }
+      
+      /* The dots/bullets/indicators */
+      .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+      
+      .active, .dot:hover {
+        background-color: #717171;
+      }
+
+      #page-wrap {
+          width: 600px;
+          margin: 0 auto;
+          padding: 0px;
+          left:20%;
+          right:0;
+          bottom:0;
+          margin-left:auto;
+          margin-right:auto;  
+        }
+    
+      
+      /* Fading animation */
+      .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 15s;
+      }
+      
+      @-webkit-keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
+      }
+      
+      @keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
+      }
+      
+      /* On smaller screens, decrease text size */
+      @media only screen and (max-width: 300px) {
+        .prev, .next,.text {font-size: 11px}
+      }
+      .a{
+        fo: white;
+      }
+      </style>
+      
+</head>
+
+
+<body class="index-page sidebar-collapse">
+    <nav id="nav" class="navbar navbar-fixed-top" data-spy="affix">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand js-scroll-trigger" href="https://beta.letsprep.in" target="_blank" style="font-size: 12px;"><img src="{% static 'img/letspreplogo.jpg' %}" alt="letsPrep" style="width: 25%;">(beta) </a>
+
+          
+          <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <i class="fa fa-bars"></i>
+          </a>
+          </div>
+          <div class="navbar-collapse collapse pull-righ">
+            
+            <ul class="nav pull-right navbar-nav">
+              <li>
+                  <ul class="nav navbar-nav">
+                      <li><a href="#" class="navbar-brand" style="color:white;">Courses</a></li>
+                      <li><a href="#" style="color:white;">Connect</a></li>
+                      <li><a href="#" style="color:rgb(243, 215, 215);">About</a></li>
+                    </ul>
+              </li>
+            </ul>
+          </div>        
+        </div>
+      </nav>
+ 
+<div class="slideshow-container">
+
+  <div class="mySlides">
+    <div class="numbertext">1 / 3</div>
+    <img src="{% static 'img/1.png' %}" style="width:100%">
+    <div class="text">Caption Text</div>
+  </div>
+  
+  <div class="mySlides">
+    <div class="numbertext">2 / 3</div>
+    <img src="{% static 'img/2.png' %}" style="width:100%">
+    <div class="text">Caption Two</div>
+  </div>
+  
+  <div class="mySlides">
+    <div class="numbertext">3 / 3</div>
+    <img src="{% static 'img/3.png' %}" style="width:100%">
+    <div class="text">Caption Three</div>
+  </div>
+  
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  
+  </div>
+  <br>
+  
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span> 
+    <span class="dot" onclick="currentSlide(2)"></span> 
+    <span class="dot" onclick="currentSlide(3)"></span> 
+  </div>
+  
+
+  
+  <div class="main main-raised"
+    style="text-align:center" >
+      <div class="container">
+        <div class="section">
+          <div class="row">
+            <div class="col-md-11 ml-auto mr-auto" >
+              <h2 class="title" > <center> Your story starts with us &excl;&excl;</center> </h2>
+              <h5 class="description" > <center> Day One - Engineering college. You are starry eyed and want to make the best of these 4 years. 
+                We&apos;ll make that dream come true for you. We&apos;ll hand-hold you at every step. Be it help in learning subjects or that tough assignment bothering you, or you want to just practice by giving more tests, We are always there for you. <br>
+              And finally when it comes to Placements, We&apos;ll launch you to the orbit. </center></h5>
+            </div>
+          </div>
+          <br> <br>
+          <div class="features">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="info">
+                      <div class="icon icon-success">
+                        <i class="material-icons fa fa-dollar fa-4x"style="color: #00BA4A;" ></i>
+                      </div>
+                      <h4 class="info-title">Placement Desk</h4>
+                      <p>Placement Enabler Program (PEP), Custom designed to crack AMCAT / eLitmus / Co-cube. Stylish resume building. GD / PI mock training sessions. Assistance in floating your resume to thousands of companies.(coming soon) </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="info">
+                      <div class="icon icon-primary">
+                        <i class="fa fa-university fa-4x" style="color: #A900B8;"></i>
+                      </div>
+                      <h4 class="info-title">Engineering Subjects</h4>
+                      <p> All University Syllabus subjects. Deep learning algorithms used to harness the best content online. Easily search for any topic, subject. Videos, Notes and Quizzes in each course</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="info">
+                      <div class="icon icon-rose">
+                        <i class="material-icons fa fa-microchip fa-4x" style="color: #e91e63"></i>
+                      </div>
+                      <h4 class="info-title">AI / ML & Upskill Courses</h4>
+                      <p>Specifically designed for entry level jobs, where your skills will get you an edge from Day One. All branches of engineering. No prior knowledge needed. Other courses too like Construction management, PLM, Structural Design, Refrigeration and Air Conditioning. (pro feature. coming soon)</p>
+                  </div>
+              </div>              
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+
+        <div class="section text-center">
+            <div class="row">
+              <div class="col-md-11 ml-auto mr-auto">
+                <h2 class="title"> Lets talk features</h2>
+              </div>
+            </div>
+            <br>
+            <div class="features">
+              <div class="row">
+                
+                  <div class="col-md-4">
+                    <div class="info">
+                      <div class="icon icon-info">
+                        <i class="material-icons" style="color: #00BFDB">chat</i>
+                      </div>
+                      <h4 class="info-title">Live Chat</h4>
+                      <p>Chat live with our agents for any support. Also, every course has a chatroom. Here, you can talk to your fellow course mates, discuss and learn from each other.(pro feature, free for now)</p>
+                    </div>
+                  </div>
+                <div class="col-md-4">
+                  <div class="info">
+                    <div class="icon icon-danger">
+                      <i class="material-icons" style="color: #e91e63">live_help</i>
+                    </div>
+                    <h4 class="info-title">Ask Questions</h4>
+                    <p>Ask questions to the subject matter experts. That tough assignment, get help in understanding solutions.(pro feature. coming soon)</p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="info">
+                      <div class="icon icon-success">
+                        <i class="material-icons" style="color: #00BA4A">check_circle</i>
+                      </div>
+                      <h4 class="info-title">Test Series</h4>
+                      <p>More the tests you give, more will be your marks. Get timed MCQ tests with instant score. Also, get subjective tests - as per university pattern. Get them corrected and marked from our subject experts.</p>
+                    </div>
+                  </div>
+  
+              </div>
+            </div>
+          </div>
+       
+
+        <div class="section text-center section-courses">
+            <div class="row">
+              <div class="col-md-11 ml-auto mr-auto" >
+                <h2 class="title">Engineering Courses</h2>
+                <br><br>
+              </div>
+            </div>
+
+
+      <div class="owl-carousel owl-theme">
+          
+          
+          <div class="item"><a href="https://beta.letsprep.in/home/course/view.php?id=4"><img src="{% static 'img/102.png' %}" alt="Owl Image"></a></div>
+          <div class="item"><a href="https://beta.letsprep.in/home/course/view.php?id=5"><img src="{% static 'img/103.png' %}" alt="Owl Image"></a></div>
+          <div class="item"><a href="https://beta.letsprep.in/home/course/view.php?id=22"><img src="{% static 'img/104.png' %}" alt="Owl Image"></a></div>
+          <div class="item"><a href="https://beta.letsprep.in/home/course/view.php?id=20"><img src="{% static 'img/105.png' %} " alt="Owl Image"></a></div>
+          <div class="item"><a href="https://beta.letsprep.in/home/course/view.php?id=17"><img src="{% static 'img/106.png' %} " alt="Owl Image"></a></div>
+          <div class="item"><a href="https://beta.letsprep.in/home/course/view.php?id=19"><img src="{% static 'img/107.png' %}" alt="Owl Image"></a></div>
+          <div class="item"><a href="https://beta.letsprep.in/home/course/view.php?id=24"><img src="{% static 'img/108.png' %}" alt="Owl Image"></a></div>
+         
+        </div>
+        
+        
+
+        <div class="section section-contacts" >
+          <div class="row">
+            <div id="page-wrap" class="col-md-11 ml-auto mr-auto" >
+              <h2 class="text-center title">Connect with us</h2>
+              <h4 class="text-center description">Connect if you have any doubts regarding the product and/or features. If you are a teacher and would like to collaborate, drop in a few lines. We&apos;ll get back in few hours.</h4>
+              <form class="contact-form" action="https://formspree.io/abhishekpatnaik77@gmail.com" method="POST">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Your Name</label>
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Your Email</label>
+                      <input type="email" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label id="message" name="name" for="exampleMessage" class="bmd-label-floating">Your Message</label>
+                  <textarea type="text" name="name" class="form-control" rows="4" id="exampleMessage"></textarea>
+                </div>  
+                <div class="row">
+                  <div class="col-md-11 ml-auto mr-auto text-center">
+                    <button class="btn btn-primary btn-raised" >Send Message </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="sharing-area text-center">
+            <div class="row justify-content-center">
+              <h3>Thank you for supporting us!</h3>
+            </div>
+            <button id="twitter" class="btn btn-raised btn-twitter sharrre">
+              <i class="fa fa-twitter"></i> Tweet
+            </button>
+            <button id="facebook" class="btn btn-raised btn-facebook sharrre">
+              <i class="fa fa-facebook-square"></i> Share
+            </button>
+            <button id="googlePlus" class="btn btn-raised btn-google-plus sharrre">
+              <i class="fa fa-google-plus"></i> Share
+            </button>
+            <a id="github" href="https://github.com/creativetimofficial/material-kit" target="_blank" class="btn btn-raised btn-github">
+              <i class="fa fa-github"></i> Star
+            </a>
+          </div>
+          <br><br><br>
+
+      </div>
+    </div>
+ 
+
+
+
+
+      </div>
+  
+
+  <!-- Classic Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <i class="material-icons">clear</i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-link">Nice Button</button>
+          <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  End Modal -->
+  <footer class="footer" data-background-color="black">
+      <div class="container">
+        <nav class="float-left">
+          <ul>
+            
+            </li>
+            <li>
+              <a href="#">
+                About Us
+              </a>
+            </li>
+            <li>
+              <a href="https://medium.com/letsprep">
+                Blog
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Licenses
+              </a>
+              Contact us
+              
+            </li>
+          </ul>
+        </nav>
+        <div class="copyright float-right">
+          &copy;
+          <script>
+            document.write(new Date().getFullYear())
+          </script>, Copyright
+          <a href="letsprep.in" target="_blank">Ripplex Ed-tech LLP</a> 
+        </div>
+      </div>
+    </footer>
+  <!--   Core JS Files   -->
+  <script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+    
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      var i;
+      console.log(n);
+      var slides = document.getElementsByClassName("mySlides");
+      console.log(slides)
+      var dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}    
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";  
+      }
+      for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+    }
+    </script>
+
+  <script src="{% static 'js/core/jquery.min.js'%} " type="text/javascript"></script>
+  <script src="{% static 'js/core/popper.min.js'%} " type="text/javascript"></script>
+  <script src="{% static 'js/core/bootstrap-material-design.min.js'%}" type="text/javascript"></script>
+  <script src="{% static 'js/plugins/moment.min.js'%} "></script>
+  <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+  <script src="{% static 'js/plugins/bootstrap-datetimepicker.js' %}" type="text/javascript"></script> 
+   
+  <!-- Slider  -->
+
+  <script src="{% static 'js/plugins/nouislider.min.js' %} " type="text/javascript"></script>
+ 
+  <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
+  <!-- <script src="{% static 'js/material-kit.js?v=2.0.6' %} " type="text/javascript"></script> -->
+  <script src="{% static 'js/core/jquery.min.js' %} " type="text/javascript"></script>
+  <script src="{% static 'js/owl.carousel.min.js' %}" type="text/javascript"></script>
+  
+  <script>
+    $(document).ready(function() {
+      //init DateTimePickers
+      materialKit.initFormExtendedDatetimepickers();
+
+      // Sliders Init
+     
+    });
+
+
+  </script>
+ 
+</body>
+
+</html>
